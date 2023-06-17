@@ -16,6 +16,7 @@ var (
 	schemas = []interface{}{
 		&User{},
 		&Items{},
+		&TimeCards{},
 	}
 )
 
@@ -69,6 +70,15 @@ func Setup() error {
 		tx.Rollback()
 		return fmt.Errorf("failed to connect database: %v", err)
 	}
+	var users []User
+	var items []Items
+	var timeCards []TimeCards
+	db.Find(&users)
+	db.Find(&items)
+	db.Find(&timeCards)
+	fmt.Println(users)
+	fmt.Println(items)
+	fmt.Println(timeCards)
 
 	return tx.Commit().Error
 }

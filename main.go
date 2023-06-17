@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 
@@ -10,6 +11,8 @@ import (
 )
 
 func main() {
+	fmt.Printf("hello")
+
 	if err := model.Setup(); err != nil {
 		panic(err)
 	}
